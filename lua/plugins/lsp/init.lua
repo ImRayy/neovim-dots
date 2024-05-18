@@ -2,10 +2,10 @@ return {
     -- lspconfig
     {
         "neovim/nvim-lspconfig",
+        -- event = "LazyFile",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
         },
-        event = "BufReadPre",
         config = function()
             local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -37,6 +37,7 @@ return {
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
+        version = false,
         config = function()
             local cmp = require('cmp')
             local icons = {
@@ -73,6 +74,8 @@ return {
             }
 
             cmp.setup({
+                history = true,
+                delete_check_events = "TextChanged",
                 mapping = cmp.mapping.preset.insert({
                     ["<C-e>"] = cmp.config.disable,
                     ["<C-d>"] = cmp.mapping.scroll_docs(-4),

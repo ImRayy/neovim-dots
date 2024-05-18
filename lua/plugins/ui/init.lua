@@ -67,7 +67,7 @@ return {
     -- Status line
     {
         "nvim-lualine/lualine.nvim",
-        event = "BufEnter",
+        event = "VeryLazy",
         opts = {
             options = {
                 theme = "auto",

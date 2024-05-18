@@ -1,5 +1,6 @@
 return {
     "nvimtools/none-ls.nvim",
+    event = "VeryLazy",
     dependencies = {
         "nvimtools/none-ls-extras.nvim",
         "nvim-lua/plenary.nvim",
