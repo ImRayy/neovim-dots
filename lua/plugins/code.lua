@@ -6,6 +6,14 @@ return {
         opts = {},
     },
 
+    -- Rainbow parentheses
+    {
+        'HiPhish/rainbow-delimiters.nvim',
+        config = function()
+            require('rainbow-delimiters.setup').setup()
+        end
+    },
+
     -- Makes Commenting Easy
     {
         "numToStr/Comment.nvim",
@@ -27,5 +35,6 @@ return {
         "NvChad/nvim-colorizer.lua",
         opts = {},
     },
+
 
 }
