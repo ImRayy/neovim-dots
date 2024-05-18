@@ -1,18 +1,11 @@
 local function map(m, k, v, opts)
-    vim.keymap.set(m, k, v, vim.tbl_deep_extend("force", { silent = true, noremap = true }, opts or {}))
+	vim.keymap.set(m, k, v, vim.tbl_deep_extend("force", { silent = true, noremap = true }, opts or {}))
 end
 
 -- General Settings
 map("n", "*", "*N", { desc = "Fix * (Keep the cursor position, don't move to next match)" })
 map("n", "<C-Q>", ":q!<CR>", { desc = "Quit neovim" })
 map("i", "<C-Backspace>", "<C-W>", { noremap = true, desc = "Delete a word" })
-
--- Line Movement
--- Reference: https://vim.fandom.com/wiki/Moving_lines_up_or_down
-map("n", "<A-j>", ":move .+1<CR>", { desc = "Move line down" })
-map("n", "<A-k>", ":move .-2<CR>", { desc = "Move line up" })
-map("x", "<A-j>", ":move '>+1<CR>gv=gv", { desc = "Move multiple selected line down" })
-map("x", "<A-k>", ":move '<-2<CR>gv=gv", { desc = "Move multiple selected lines up" })
 
 -- Spell check
 map("n", "<leader>s", ":setlocal spell spelllang=en_us<CR>", { desc = "Turn on spell check" })
@@ -22,11 +15,11 @@ map("n", "<C-s>", require("auto-session.session-lens").search_session, { desc = 
 
 -- Formatter
 map("n", "<Space>f", function()
-    local status_ok, format = pcall(require, "conform")
-    if not status_ok then
-        return
-    end
-    format.format({ async = true, lsp_fallback = true })
+	local status_ok, format = pcall(require, "conform")
+	if not status_ok then
+		return
+	end
+	format.format({ async = true, lsp_fallback = true })
 end, { desc = "Format code" })
 
 -- Switch panes

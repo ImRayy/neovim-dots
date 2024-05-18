@@ -26,10 +26,8 @@
 ## ⌨️  Keybindings
 
 **General**
-| Function | Keys |
+| Function             | Keys        |
 | -------------------- | ----------- |
-| Move line/lines down | Ctrl + j    |
-| Move line/lines up   | Ctrl + k    |
 | Find files           | Leader + ff |
 | Live grep            | Leader + bf |
 | Help tags            | Leader + fh |

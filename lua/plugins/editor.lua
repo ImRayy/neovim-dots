@@ -184,4 +184,11 @@ return {
 			},
 		},
 	},
+
+	-- Move any selection in any direction
+	{
+		"echasnovski/mini.move",
+		event = "VeryLazy",
+		opts = {},
+	},
 }
