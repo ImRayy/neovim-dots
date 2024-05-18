@@ -219,6 +219,7 @@ return {
                 buftypes = { "terminal" },
             },
             indent = {
+                char = "│",
                 tab_char = { "." },
             },
         },
