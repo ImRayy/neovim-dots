@@ -176,12 +176,45 @@ return {
         opts = {},
     },
 
+
+    -- Visualize and work with indent scope
+    {
+        'echasnovski/mini.indentscope',
+        version = false,
+        opts = {
+            symbol = "│",
+            options = { try_as_border = true },
+        },
+        init = function()
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = {
+                    "help",
+                    "alpha",
+                    "neo-tree",
+                    "Trouble",
+                    "trouble",
+                    "lazy",
+                    "mason",
+                    "notify",
+                    "toggleterm",
+                    "lazyterm",
+                },
+                callback = function()
+                    vim.b.miniindentscope_disable = true
+                end,
+            })
+        end,
+    },
+
     -- Indent blankline
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         commit = "29be0919b91fb59eca9e90690d76014233392bef",
         opts = {
+            scope = {
+                enabled = false,
+            },
             exclude = {
                 buftypes = { "terminal" },
             },
