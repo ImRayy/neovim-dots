@@ -24,6 +24,7 @@ return {
         'echasnovski/mini.animate',
         recommended = true,
         event = "VeryLazy",
+        enabled = vim.g.neovide == nil, -- if current editor is neovide then disable
         opts = function()
             -- don't use animate when scrolling with the mouse
             local mouse_scrolled = false
