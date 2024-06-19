@@ -13,7 +13,7 @@ local options = {
 
     -- Theme
     neovide_transparency = 0.0,
-    transparency = 0.6,
+    transparency = 1,
 }
 
 for x, y in pairs(options) do

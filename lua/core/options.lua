@@ -1,10 +1,11 @@
-function set_vim_options(options, use_opt)
+local function set_vim_options(options, use_opt)
     local vim_cmd = use_opt and vim.opt or vim.g
     for x, y in pairs(options) do
         vim_cmd[x] = y
     end
 end
 
+-- stylua: ignore
 local options = {
     termguicolors = true,      -- set term gui colors (most terminals support this)
     timeoutlen = 500,          -- time to wait for a mapped sequence to complete (in milliseconds)
@@ -31,7 +32,7 @@ local options = {
     history = 50,              -- Remember 50 items in commandline history
     splitright = true,         -- Better buffer splitting
     splitbelow = true,
-    guifont = "CommitMono Nerd Font:h15",
+    guifont = "CommitMono Nerd Font:h12",
     mouse = "a",
     listchars = "trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂",
 }
