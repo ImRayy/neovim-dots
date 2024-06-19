@@ -9,16 +9,16 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lsp_servers = require("utils.lsp").ensure_installed.servers
+      local mason_lspconfig = require("mason-lspconfig")
 
-      for _, server in pairs(lsp_servers) do
-        Opts = {
-          on_attach = nil,
-          capabilities = capabilities,
-        }
-        server = vim.split(server, "@")[1]
-        lspconfig[server].setup(Opts)
-      end
+      mason_lspconfig.setup_handlers({
+        -- default handler for installed servers
+        function(server_name)
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+          })
+        end,
+      })
 
       -- Disables warning "undefined global 'vim'"
       lspconfig.lua_ls.setup({
