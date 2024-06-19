@@ -13,8 +13,9 @@ M.ensure_installed = {
         "pyright",
         "tailwindcss",
         "taplo",
-        "tsserver",
+        "vtsls",
     },
+
 }
 
 return M

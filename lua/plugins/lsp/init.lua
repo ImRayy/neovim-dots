@@ -12,7 +12,7 @@ return {
             local lsp_servers = require("utils.lsp").ensure_installed.servers
             for _, server in pairs(lsp_servers) do
                 Opts = {
-                    on_attach = on_attach,
+                    on_attach = nil,
                     capabilities = capabilities,
                 }
                 server = vim.split(server, "@")[1]
@@ -29,6 +29,25 @@ return {
                     }
                 }
             }
+
+            lspconfig.eslint.setup {
+                settings = {
+                    workingDirectories = { mode = "auto" },
+                },
+            }
+
+            -- LSP wrapper for typescript extension of vscode
+            lspconfig.vtsls.setup {
+                enableMoveToFileCodeAction = true,
+                autoUseWorkspaceTsdk = true,
+                experimental = {
+                    completion = {
+                        enableServerSideFuzzyMatch = true,
+                    },
+                },
+            }
+
+            lspconfig.astro.setup({})
         end
 
     },
