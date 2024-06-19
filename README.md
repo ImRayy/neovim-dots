@@ -13,7 +13,7 @@
 
 - 📦️ [lazy.nvim](https://github.com/folke/lazy.nvim) as package manager
 - ⚡️ Startup screen [alpha-nvim](https://github.com/goolord/alpha-nvim)
-- 🚨 For linting [none-ls.nvim](https://github.com/nvimtools/none-ls.nvim)
+- 🚨 For linting [nvim-lint](https://github.com/mfussenegger/nvim-lint)
 - 🔭 Fuzzy finder [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - 🦄 [nvim-notify](https://github.com/rcarriga/nvim-notify) for notifications & [noice.nvim](https://github.com/folke/noice.nvim) for other UI related stuff
 - 🗃️ File system browser [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
