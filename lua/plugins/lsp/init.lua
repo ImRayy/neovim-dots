@@ -10,6 +10,7 @@ return {
       local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lsp_servers = require("utils.lsp").ensure_installed.servers
+
       for _, server in pairs(lsp_servers) do
         Opts = {
           on_attach = nil,
