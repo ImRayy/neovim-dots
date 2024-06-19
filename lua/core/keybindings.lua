@@ -1,5 +1,5 @@
 local function map(m, k, v, opts)
-	vim.keymap.set(m, k, v, vim.tbl_deep_extend("force", { silent = true, noremap = true }, opts or {}))
+  vim.keymap.set(m, k, v, vim.tbl_deep_extend("force", { silent = true, noremap = true }, opts or {}))
 end
 
 -- General Settings
@@ -15,11 +15,11 @@ map("n", "<C-s>", require("auto-session.session-lens").search_session, { desc = 
 
 -- Formatter
 map("n", "<Space>f", function()
-	local status_ok, format = pcall(require, "conform")
-	if not status_ok then
-		return
-	end
-	format.format({ async = true, lsp_fallback = true })
+  local status_ok, format = pcall(require, "conform")
+  if not status_ok then
+    return
+  end
+  format.format({ async = true, lsp_fallback = true })
 end, { desc = "Format code" })
 
 -- Switch panes

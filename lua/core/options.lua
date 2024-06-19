@@ -1,8 +1,8 @@
 local function set_vim_options(options, use_opt)
-    local vim_cmd = use_opt and vim.opt or vim.g
-    for x, y in pairs(options) do
-        vim_cmd[x] = y
-    end
+  local vim_cmd = use_opt and vim.opt or vim.g
+  for x, y in pairs(options) do
+    vim_cmd[x] = y
+  end
 end
 
 -- stylua: ignore
