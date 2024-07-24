@@ -14,12 +14,11 @@ return {
     end,
   },
 
-  -- Makes Commenting Easy
+  -- Tiny plugin to enhance Neovim's native comments
   {
-    "numToStr/Comment.nvim",
-    opts = {
-      {},
-    },
+    "folke/ts-comments.nvim",
+    event = "VeryLazy",
+    opts = {},
   },
 
   -- Autohighlight word under cursor
