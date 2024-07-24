@@ -58,7 +58,6 @@ return {
     event = "LspAttach",
     keys = {
       { "<a-.>", mode = { "n" }, ":Lspsaga ", desc = "Too lazy to type :Lspsaga manually" },
-      { "<a-d>", mode = { "n", "t" }, "<cmd>Lspsaga term_toggle<cr>", desc = "Toggle floating terminal" },
       { "<a-n>", mode = { "n" }, "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Jumpt to next diagnostic" },
       { "<a-p>", mode = { "n" }, "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Jumpt to prev diagnostic" },
       { "<leader>ca", mode = { "n" }, "<cmd>Lspsaga code_action<cr>", desc = "Code action" },
@@ -142,10 +141,11 @@ return {
           documentation = cmp.config.window.bordered(),
         },
         sources = cmp.config.sources({
-          { name = "nvim_lsp", max_item_count = 10 },
-          { name = "luasnip", max_item_count = 10 },
-          { name = "path", max_item_count = 10 },
-          { name = "buffer", max_item_count = 10 },
+          { name = "nvim_lsp", max_item_count = 10, priority = 1000 },
+          { name = "luasnip", max_item_count = 10, priority = 750 },
+          { name = "vim-dadbod-completion", max_item_count = 10, priority = 700 },
+          { name = "buffer", max_item_count = 10, priority = 500 },
+          { name = "path", max_item_count = 10, priority = 250 },
         }),
         snippet = {
           expand = function(args)
@@ -168,4 +168,9 @@ return {
   { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
   { "hrsh7th/cmp-path", after = "nvim-cmp" },
   { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+  {
+    "kristijanhusak/vim-dadbod-completion",
+    ft = { "sql", "mysql", "plsql" },
+    after = "nvim-cmp",
+  },
 }

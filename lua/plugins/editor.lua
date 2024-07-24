@@ -261,13 +261,13 @@ return {
   {
     "kristijanhusak/vim-dadbod-ui",
     cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },
-    dependencies = {
-      "tpope/vim-dadbod",
-      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" } },
-    },
+    dependencies = { "tpope/vim-dadbod" },
     init = function()
-      -- Your DBUI configuration
       vim.g.db_ui_use_nerd_fonts = 1
     end,
+    keys = {
+      { "<leader>d", "<cmd>tabnew<cr><cmd>DBUI<cr>", mode = "n" },
+      { "<a-d>", "<cmd>DBUIToggle<cr>", mode = "n" },
+    },
   },
 }
