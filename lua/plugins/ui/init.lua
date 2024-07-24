@@ -7,8 +7,8 @@ return {
       timeout = 1000,
       level = 2,
       minimum_width = 50,
-      render = "minimal",
-      stages = "static",
+      render = "default",
+      stages = "fade_in_slide_out",
     },
   },
 
