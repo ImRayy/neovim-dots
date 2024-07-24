@@ -11,21 +11,32 @@ return {
   event = { "BufWritePre" },
   cmd = { "ConfirmInfo" },
   opts = {
+    formatters = {
+      sql_formatter = {
+        prepend_args = {
+          "--config",
+          '{"expressionWidth": "100", "keywordCase":"upper","dataTypeCase":"upper","functionCase":"upper"}',
+        },
+      },
+    },
     formatters_by_ft = {
       astro = { "biome" },
       css = { "prettier" },
       html = { "prettier" },
-      json = { "prettier" },
-      lua = { "stylua" },
-      markdown = { "prettier" },
-      python = { "black", "yapf" },
-      svelete = { "prettier" },
-      javascript = { { "prettier", "prettierd" } },
-      javascriptreact = { "prettier" },
-      typescript = { { "prettier", "prettierd" } },
-      typescriptreact = { "prettier" },
+      json = { "biome", "prettier" },
+      jsonc = { "biome", "prettier" },
+      javascript = { "biome", "prettier", "prettierd" },
+      typescript = { "biome", "prettier", "prettierd" },
+      javascriptreact = { "biome", "prettier", "prettierd" },
+      typescriptreact = { "biome", "prettier", "prettierd" },
       yaml = { "prettier" },
-      sh = { "shfmt" },
+      lua = { "stylua" },
+      python = { "black", "yapf" },
+      bash = { "beautysh" },
+      zsh = { "beautysh" },
+      markdown = { "prettier" },
+      toml = { "taplo" },
+      sql = { "sql_formatter" },
     },
 
     format_on_save = function(bufnr)
