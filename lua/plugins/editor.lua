@@ -242,21 +242,6 @@ return {
     opts = {},
   },
 
-  {
-    "echasnovski/mini.diff",
-    version = false,
-    opts = {
-      view = {
-        style = "sign",
-        signs = {
-          add = "┃",
-          change = "┃",
-          delete = "",
-        },
-      },
-    },
-  },
-
   -- SQL stuff
   {
     "kristijanhusak/vim-dadbod-ui",
