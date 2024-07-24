@@ -242,6 +242,25 @@ return {
     opts = {},
   },
 
+  -- Find Nerd Glyphs Easily 🤓🔭
+  {
+    "2kabhishek/nerdy.nvim",
+    cmd = "Nerdy",
+    dependencies = {
+      "stevearc/dressing.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  },
+
+  -- Incremental LSP renaming based on Neoviml's command-preview feature
+  {
+    "smjonas/inc-rename.nvim",
+    cmd = "IncRename",
+    config = function()
+      require("inc_rename").setup()
+    end,
+  },
+
   -- SQL stuff
   {
     "kristijanhusak/vim-dadbod-ui",
