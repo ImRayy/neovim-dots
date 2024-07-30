@@ -82,8 +82,6 @@ return {
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
-    after = "catppuccin",
-    version = "*",
     dependencies = "nvim-tree/nvim-web-devicons",
     keys = {
       { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
@@ -92,25 +90,18 @@ return {
     },
 
     opts = {
-      highlights = require("catppuccin.groups.integrations.bufferline").get({
-        styles = { "italic", "bold" },
-        custom = {
-          all = {
-            fill = { bg = "" },
-          },
-        },
-      }),
       options = {
         diagnostics = "nvim_lsp",
         modified_icon = "●",
         show_close_icon = false,
         show_buffer_close_icons = false,
+        always_show_bufferline = false,
         offsets = {
           {
             filetype = "neo-tree",
-            text = "File Explorer",
+            text = "Neo Tree",
             highlight = "Directory",
-            separator = "",
+            text_align = "left",
           },
         },
       },
