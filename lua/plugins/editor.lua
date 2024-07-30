@@ -271,7 +271,21 @@ return {
     end,
     keys = {
       { "<leader>d", "<cmd>tabnew<cr><cmd>DBUI<cr>", mode = "n" },
-      { "<a-d>", "<cmd>DBUIToggle<cr>", mode = "n" },
+      { "<a-d>", "<cmd>DBUIToggle<cr><cmd>Neotree close<cr>", mode = "n" },
+    },
+  },
+
+  -- MarkdownPreview
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown", "mdx" }
+    end,
+    ft = { "markdown", "mdx" },
+    keys = {
+      { "<a-m>", "<cmd>MarkdownPreview<cr>", mode = "n" },
     },
   },
 }
