@@ -121,6 +121,12 @@ return {
           { "filename", file_status = true },
           { "diagnostics" },
         },
+        lualine_x = {
+          {
+            require("noice").api.statusline.mode.get,
+            cond = require("noice").api.statusline.mode.has,
+          },
+        },
         lualine_y = { "progress" },
         lualine_z = {
           { "location", color = { gui = "bold" } },
