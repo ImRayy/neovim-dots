@@ -35,5 +35,6 @@ local options = {
     guifont = "CommitMono Nerd Font:h12",
     mouse = "a",
     listchars = "trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂",
+    conceallevel = 2
 }
 set_vim_options(options, true)
