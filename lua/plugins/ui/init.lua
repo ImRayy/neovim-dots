@@ -9,6 +9,7 @@ return {
       minimum_width = 50,
       render = "default",
       stages = "fade_in_slide_out",
+      background_colour = "#000000",
     },
   },
 
@@ -23,7 +24,8 @@ return {
     "echasnovski/mini.animate",
     recommended = true,
     event = "VeryLazy",
-    enabled = vim.g.neovide == nil, -- if current editor is neovide then disable
+    -- enabled = vim.g.neovide == nil, -- if current editor is neovide then disable
+    enabled = false,
     opts = function()
       -- don't use animate when scrolling with the mouse
       local mouse_scrolled = false
@@ -64,35 +66,11 @@ return {
       "MunifTanjim/nui.nvim",
     },
     opts = {
-      views = {
-        cmdline_popup = {
-          position = {
-            row = 5,
-            col = "50%",
-          },
-          size = {
-            width = 60,
-            height = "auto",
-          },
-        },
-        popupmenu = {
-          relative = "editor",
-          position = {
-            row = 8,
-            col = "50%",
-          },
-          size = {
-            width = 60,
-            height = 10,
-          },
-          border = {
-            style = "rounded",
-            padding = { 0, 1 },
-          },
-          win_options = {
-            winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
-          },
-        },
+      presets = {
+        inc_rename = true,
+        bottom_search = true,
+        command_palette = true,
+        long_message_to_split = true,
       },
     },
   },
@@ -126,11 +104,10 @@ return {
             require("noice").api.statusline.mode.get,
             cond = require("noice").api.statusline.mode.has,
           },
+          "filetype",
         },
-        lualine_y = { "progress" },
-        lualine_z = {
-          { "location", color = { gui = "bold" } },
-        },
+        lualine_y = { "location" },
+        lualine_z = { "progress" },
       },
       tabline = {},
       extensions = { "quickfix", "nvim-tree" },
