@@ -15,7 +15,7 @@ return {
       sql_formatter = {
         prepend_args = {
           "--config",
-          '{"expressionWidth": "100", "keywordCase":"upper","dataTypeCase":"upper","functionCase":"upper"}',
+          '{"expressionWidth": "50", "keywordCase":"upper","dataTypeCase":"upper","functionCase":"upper"}',
         },
       },
     },
