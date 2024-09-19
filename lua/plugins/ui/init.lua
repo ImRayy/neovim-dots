@@ -126,12 +126,4 @@ return {
       { "<leader>fh", "<cmd>Telescope help_tags<cr>", mode = "n" },
     },
   },
-
-  -- Trouble
-  {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    cmd = "Trouble",
-    opts = {},
-  },
 }
