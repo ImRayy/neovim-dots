@@ -1,23 +1,4 @@
 return {
-  -- For calling lazygit from within neovim.
-  {
-
-    "kdheepak/lazygit.nvim",
-    cmd = {
-      "LazyGit",
-      "LazyGitConfig",
-      "LazyGitCurrentFile",
-      "LazyGitFilter",
-      "LazyGitFilterCurrentFile",
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    keys = {
-      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-    },
-  },
-
   -- Work with diff hunks. Part of 'mini.nvim' library.
   {
     "echasnovski/mini.diff",
@@ -31,6 +12,19 @@ return {
           delete = "",
         },
       },
+    },
+  },
+
+  {
+
+    {
+      "NeogitOrg/neogit",
+      dependencies = {
+        "nvim-lua/plenary.nvim", -- required
+        "sindrets/diffview.nvim", -- optional - Diff integration
+        "nvim-telescope/telescope.nvim", -- optional
+      },
+      config = true,
     },
   },
 }
