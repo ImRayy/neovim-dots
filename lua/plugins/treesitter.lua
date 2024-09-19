@@ -30,4 +30,33 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     opts = { mode = "cursor", max_lines = 2 },
   },
+
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        highlight = { enable = true },
+        indent = { enable = true },
+        textobjects = {
+          select = {
+            enable = true,
+            lookhead = true,
+            keymaps = {
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["aa"] = "@parameter.outer",
+              ["ia"] = "@parameter.inner",
+              ["ac"] = "@class.outer",
+              ["ic"] = "@class.inner",
+              ["ii"] = "@conditional.inner",
+              ["ai"] = "@conditional.outer",
+              ["at"] = "@comment.outer",
+              ["iq"] = "@block.innter",
+            },
+          },
+        },
+      })
+    end,
+  },
 }
