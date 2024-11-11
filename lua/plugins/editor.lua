@@ -234,17 +234,37 @@ return {
     },
   },
 
-  -- MarkdownPreview
+  -- Dims inactive portions of the code you're editing using TreeSitter.
   {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown", "mdx" }
-    end,
-    ft = { "markdown", "mdx" },
-    keys = {
-      { "<a-m>", "<cmd>MarkdownPreview<cr>", mode = "n" },
+    "folke/zen-mode.nvim",
+    -- cmd = "ZenMode",
+    dependencies = { "folke/twilight.nvim" },
+    opts = {
+      plugins = {
+        kitty = {
+          enabled = true,
+          font = "+2",
+        },
+        neovide = {
+          enabled = true,
+          scale = 1.2,
+          disable_animations = {
+            neovide_animation_length = 0.15,
+            neovide_cursor_animate_command_line = true,
+            neovide_scroll_animation_length = 0.3,
+            neovide_position_animation_length = 0.15,
+            neovide_cursor_animation_length = 0.12,
+            neovide_cursor_vfx_mode = "ripple",
+          },
+        },
+      },
     },
+  },
+
+  -- Handful of tweaks needed to smooth the path to writing prose
+  {
+    "preservim/vim-pencil",
+    cmd = "Pencil",
+    config = function() end,
   },
 }
