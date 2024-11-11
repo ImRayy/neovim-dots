@@ -4,14 +4,14 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    lazy = true,
+    enabled = false,
     opts = {
       flavour = "mocha", -- latte, frappe, macchiato, mocha
       background = { -- :h background
         light = "mocha",
         dark = "mocha",
       },
-      transparent_background = false,
+      transparent_background = vim.g.neovide == nil,
       show_end_of_buffer = false, -- show the '~' characters after the end of buffers
       term_colors = false,
       dim_inactive = {
@@ -56,5 +56,29 @@ return {
   -- Tokyonight
   {
     "folke/tokyonight.nvim",
+    enabled = false,
+  },
+
+  -- Rose Pine
+  {
+    "rose-pine/neovim",
+    enabled = false,
+    name = "rose-pine",
+    opts = {
+      variant = "auto",
+      styles = {
+        transparency = vim.g.neovide == nil,
+      },
+    },
+  },
+
+  -- Gruvbox
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = true,
+    opts = {
+      transparent_mode = vim.g.neovide == nil,
+    },
   },
 }
