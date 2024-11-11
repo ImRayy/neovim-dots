@@ -2,7 +2,6 @@ return {
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
-    -- event = "LazyFile",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
     },
@@ -49,6 +48,24 @@ return {
       })
 
       lspconfig.astro.setup({})
+      lspconfig.nixd.setup({
+        cmd = { "nixd" },
+        settings = {
+          nixd = {
+            nixpkgs = {
+              expr = "import <nixpkgs> {}",
+            },
+            options = {
+              nixos = {
+                expr = '(builtins.getFlake ("git+file://" + toString ./.)).nixosConfigurations.default.options',
+              },
+              home_manager = {
+                expr = '(builtins.getFlake ("git+file://" + toString ./.)).homeConfigurations.ray.options',
+              },
+            },
+          },
+        },
+      })
     end,
   },
 
