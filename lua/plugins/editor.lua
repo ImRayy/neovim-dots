@@ -32,6 +32,7 @@ return {
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
+    version = "*",
     dependencies = "nvim-tree/nvim-web-devicons",
     keys = {
       { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
