@@ -17,6 +17,7 @@ return {
   -- Improve viewing Markdown files in Neovim
   {
     "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "norg", "rmd", "org" },
     opts = {
       heading = {
         position = "inline",
