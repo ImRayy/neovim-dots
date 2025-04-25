@@ -157,6 +157,10 @@ return {
   {
     "smjonas/inc-rename.nvim",
     cmd = "IncRename",
+    lazy = false,
+    keys = {
+      { "<leader>rn", ":IncRename ", mode = "n" },
+    },
     config = function()
       require("inc_rename").setup()
     end,
