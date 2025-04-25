@@ -41,3 +41,7 @@ end)
 map("n", "<C-->", function()
   change_scale_factor(1 / 1.25)
 end)
+
+-- Remap for dealing with word wrap
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

@@ -16,7 +16,6 @@ local options = {
     cursorline = true,         -- highlight the current line
     expandtab = true,          -- convert tabs to spaces
     cindent = true,
-    wrap = true,               -- display lines as one long line
     textwidth = 300,
     tabstop = 4,               -- insert 2 spaces for a tab
     shiftwidth = 0,            -- the number of spaces inserted for each indentation
@@ -35,6 +34,12 @@ local options = {
     guifont = "CommitMono Nerd Font:h12.5",
     -- mouse = "a",
     listchars = "trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂",
+
+    -- line wrapping
+    wrap = true,
+    breakindent = true,
+    showbreak = string.rep(" ", 3), -- Make it so that long lines wrap smartly
+    linebreak = true
 }
 set_vim_options(options, true)
 
