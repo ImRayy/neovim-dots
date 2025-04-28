@@ -4,7 +4,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    enabled = false,
+    lazy = true,
     opts = {
       flavour = "mocha", -- latte, frappe, macchiato, mocha
       background = { -- :h background
@@ -56,13 +56,13 @@ return {
   -- Tokyonight
   {
     "folke/tokyonight.nvim",
-    enabled = false,
+    lazy = true,
   },
 
   -- Rose Pine
   {
     "rose-pine/neovim",
-    enabled = false,
+    lazy = true,
     name = "rose-pine",
     opts = {
       variant = "auto",
@@ -75,6 +75,7 @@ return {
   -- Gruvbox
   {
     "ellisonleao/gruvbox.nvim",
+    lazy = false,
     priority = 1000,
     config = true,
     opts = {

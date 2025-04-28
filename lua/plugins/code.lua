@@ -1,12 +1,4 @@
 return {
-  -- Autopairs
-  {
-    event = "InsertEnter",
-    "echasnovski/mini.pairs",
-    version = "*",
-    opts = {},
-  },
-
   -- Rainbow parentheses
   {
     "HiPhish/rainbow-delimiters.nvim",
@@ -19,30 +11,6 @@ return {
   {
     "folke/ts-comments.nvim",
     event = "VeryLazy",
-    opts = {},
-  },
-
-  -- Fast and feature-rich surround actions
-  {
-    "echasnovski/mini.surround",
-    version = "*",
-    opts = {
-      mappings = {
-        add = "gsa", -- Add surrounding in Normal and Visual modes
-        delete = "gsd", -- Delete surrounding
-        find = "gsf", -- Find surrounding (to the right)
-        find_left = "gsF", -- Find surrounding (to the left)
-        highlight = "gsh", -- Highlight surrounding
-        replace = "gsr", -- Replace surrounding
-        update_n_lines = "gsn", -- Update `n_lines`
-      },
-    },
-  },
-
-  -- Autohighlight word under cursor
-  {
-    "echasnovski/mini.cursorword",
-    branch = "stable",
     opts = {},
   },
 
@@ -67,11 +35,7 @@ return {
   },
 
   -- Highlight, list and search todo comments in your projects
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
-  },
+  { "folke/todo-comments.nvim", opts = {} },
 
   -- 🚦 Trouble: A pretty diagnostics, references, telescope results, quickfix
   -- and location list to help you solve all the trouble your code is causing.

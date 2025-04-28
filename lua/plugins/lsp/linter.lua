@@ -28,15 +28,4 @@ return {
       end, { desc = "Trigger linting for current file" })
     end,
   },
-
-  -- Show nvim diagnostics using virtual lines
-  {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    event = "LspAttach",
-    -- stylua: ignore
-    keys = {
-      {'<leader>l', function() require("lsp_lines").toggle() end, desc="Toggle LSP lines" }
-    },
-    opts = {},
-  },
 }

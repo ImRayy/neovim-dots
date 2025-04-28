@@ -2,6 +2,10 @@ return {
   -- Work with diff hunks. Part of 'mini.nvim' library.
   {
     "echasnovski/mini.diff",
+    cond = function()
+      return vim.fs.find(".git", { upward = true }) ~= nil
+    end,
+    event = "BufReadPre",
     version = false,
     opts = {
       view = {
@@ -15,16 +19,14 @@ return {
     },
   },
 
+  -- Git interface for Neovim, inspired by Magit
   {
-
-    {
-      "NeogitOrg/neogit",
-      dependencies = {
-        "nvim-lua/plenary.nvim", -- required
-        "sindrets/diffview.nvim", -- optional - Diff integration
-        "nvim-telescope/telescope.nvim", -- optional
-      },
-      config = true,
+    "NeogitOrg/neogit",
+    cmd = "Neogit",
+    lazy = true,
+    dependencies = {
+      "sindrets/diffview.nvim",
     },
+    config = true,
   },
 }

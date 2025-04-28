@@ -43,7 +43,7 @@ return {
       jsonc = { "biome", "prettier" },
       javascript = { "biome", "prettier", "prettierd" },
       typescript = { "biome", "prettier", "prettierd" },
-      typescriptreact = { "biome", "prettierd", "prettier" },
+      typescriptreact = { "biome" },
       yaml = { "prettier" },
       lua = { "stylua" },
       python = { "black", "yapf" },

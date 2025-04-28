@@ -16,12 +16,14 @@ return {
   -- WhichKey : Shows keybindings
   {
     "folke/which-key.nvim",
+    lazy = true,
     opts = {},
   },
 
   -- Noice: Command UI
   {
     "folke/noice.nvim",
+    lazy = true,
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -78,9 +80,6 @@ return {
   -- Telescope
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
     keys = {
       { "<leader>ff", "<cmd>Telescope find_files<cr>", mode = "n" },
       { "<leader>fg", "<cmd>Telescope live_grep<cr>", mode = "n" },

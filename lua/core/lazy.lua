@@ -15,7 +15,11 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     { import = "plugins" },
+    { import = "plugins.ai" },
     { import = "plugins.lsp" },
+    { import = "plugins.navigation" },
     { import = "plugins.ui" },
   },
+  install = { colorscheme = { "gruvbox" } },
+  checker = { enabled = false },
 })
