@@ -1,11 +1,13 @@
 return {
   {
     "williamboman/mason.nvim",
+    version = "^1.0.0",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
       {
         "williamboman/mason-lspconfig.nvim",
+        version = "^1.0.0",
         event = { "BufReadPre", "BufNewFile" },
         opts = {
           ensure_installed = {
@@ -23,7 +25,7 @@ return {
             "vtsls",
             "vtsls",
           },
-          automatic_installation = true,
+          automatic_installation = false,
         },
       },
 
@@ -39,9 +41,10 @@ return {
               "biome",
               "eslint-lsp",
               "gopls",
-              "prettier",
+              "prettierd",
+              "cspell",
             },
-            automatic_installation = true,
+            automatic_installation = false,
           })
         end,
       },
