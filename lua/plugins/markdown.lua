@@ -19,6 +19,7 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     ft = { "markdown", "norg", "rmd", "org" },
     opts = {
+      pipe_table = { cell = "trimmed" },
       heading = {
         position = "inline",
         width = "block",
