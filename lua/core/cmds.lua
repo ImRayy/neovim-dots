@@ -20,3 +20,17 @@ A.nvim_create_user_command("FormatOnSaveEnable", function()
 end, {
   desc = "Re-enable autoformat-on-save",
 })
+
+A.nvim_create_user_command("RelativeNumber", function()
+  vim.wo.relativenumber = not vim.wo.relativenumber
+end, {
+  desc = "Toggle relativenumber",
+})
+
+-- Snacks.nvim: LSP-integrated file renaming for mini files
+A.nvim_create_autocmd("User", {
+  pattern = "MiniFilesActionRename",
+  callback = function(event)
+    Snacks.rename.on_rename_file(event.data.from, event.data.to)
+  end,
+})
