@@ -1,0 +1,7 @@
+{
+  "interface PropsType": {
+    "prefix": "pt",
+    "body": ["interface PropsType {", "  $1", "}"],
+    "description": "TypeScript interface for props"
+  }
+}

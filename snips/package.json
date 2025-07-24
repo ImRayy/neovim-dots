@@ -1,14 +1,18 @@
 {
-    "name": "Bash header",
-    "engines": {
-        "vscode": "^1.11.0"
-    },
-    "contributes": {
-        "snippets": [
-            {
-                "language": "sh",
-                "path": "./snippets/bash.json"
-            }
-        ]
-    }
+  "name": "Bash header",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "sh",
+        "path": "./snippets/bash.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/tsreact.json"
+      }
+    ]
+  }
 }
