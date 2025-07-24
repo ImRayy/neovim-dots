@@ -17,6 +17,7 @@ return {
   -- Fast and feature-rich surround actions
   {
     "echasnovski/mini.surround",
+    events = { "BufWritePost", "BufReadPost", "InsertLeave" },
     version = "*",
     opts = {
       mappings = {
@@ -71,6 +72,7 @@ return {
   -- To split and join arguments
   {
     "echasnovski/mini.splitjoin",
+    event = "LspAttach",
     version = "*",
     opts = { mappings = { toggle = "gs" } },
   },
