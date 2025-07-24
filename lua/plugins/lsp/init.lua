@@ -30,9 +30,23 @@ return {
         },
       })
 
+      -- lspconfig.cssls.setup({
+      --   settings = { css = { validate = false } },
+      -- })
+
       lspconfig.eslint.setup({
+        code_actions = {
+          enable = true,
+          types = { "directive", "problem", "suggestion", "layout" },
+        },
+        diagnostics = {
+          enable = true,
+          report_unused_disable_directives = false,
+          run_on = "type", -- or `save`
+        },
         settings = {
           workingDirectories = { mode = "auto" },
+          packageManager = "bun",
         },
       })
 
@@ -45,6 +59,10 @@ return {
             enableServerSideFuzzyMatch = true,
           },
         },
+      })
+
+      lspconfig.qmlls.setup({
+        cmd = { "qmlls", "-E" },
       })
 
       lspconfig.astro.setup({})
