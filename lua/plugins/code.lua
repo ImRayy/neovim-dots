@@ -20,7 +20,9 @@ return {
     opts = {
       user_default_options = {
         css = true,
-        virtualtext = "■",
+        mode = "virtualtext",
+        virtualtext = "",
+        virtualtext_inline = "before",
         names = false,
       },
       filetypes = {
@@ -35,7 +37,7 @@ return {
   },
 
   -- Highlight, list and search todo comments in your projects
-  { "folke/todo-comments.nvim", opts = {} },
+  { "folke/todo-comments.nvim", event = "LspAttach", opts = {} },
 
   -- 🚦 Trouble: A pretty diagnostics, references, telescope results, quickfix
   -- and location list to help you solve all the trouble your code is causing.
