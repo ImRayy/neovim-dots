@@ -1,18 +1,4 @@
 return {
-  -- Notify
-  {
-    "rcarriga/nvim-notify",
-    opts = {
-      fps = 60,
-      timeout = 1000,
-      level = 2,
-      minimum_width = 50,
-      render = "default",
-      stages = "fade_in_slide_out",
-      background_colour = "#000000",
-    },
-  },
-
   -- WhichKey : Shows keybindings
   {
     "folke/which-key.nvim",
@@ -29,11 +15,11 @@ return {
       "MunifTanjim/nui.nvim",
     },
     opts = {
+
       presets = {
         inc_rename = true,
         bottom_search = true,
         command_palette = true,
-        long_message_to_split = true,
       },
     },
   },
