@@ -4,12 +4,16 @@ local function is_format_enabled(bufnr)
   end
 end
 
+local function find_root_file(filenames, start_path)
+  return vim.fs.find(filenames, { path = start_path, upward = true })[1]
+end
+
 local slow_format_filetypes = { "typescript", "typescriptreact", "javascriptreact" }
 
 return {
   "stevearc/conform.nvim",
-  event = { "BufWritePre" },
-  cmd = { "ConfirmInfo" },
+  event = "BufWritePre",
+  cmd = "ConfirmInfo",
   opts = {
     formatters = {
       sql_formatter = {
@@ -25,26 +29,49 @@ return {
           "check",
           "--formatter-enabled=true",
           "--linter-enabled=true",
-          "--organize-imports-enabled=true",
+          -- "--organize-imports-enabled=true",
           "--write",
-          "--unsafe",
+          -- "--unsafe",
           "--no-errors-on-unmatched",
           "$FILENAME",
         },
         stdin = false,
+        condition = function(ctx)
+          return find_root_file({ "biome.json" }, ctx.filename)
+        end,
+      },
+
+      prettierd = {
+        condition = function(ctx)
+          return find_root_file({
+            ".prettierrc",
+            ".prettierrc.json",
+            ".prettierrc.yml",
+            ".prettierrc.yaml",
+            ".prettierrc.json5",
+            ".prettierrc.js",
+            ".prettierrc.cjs",
+            ".prettierrc.mjs",
+            ".prettierrc.toml",
+            "prettier.config.js",
+            "prettier.config.cjs",
+            "prettier.config.mjs",
+          }, ctx.filename)
+        end,
       },
     },
     formatters_by_ft = {
       go = { "gofumpt" },
-      astro = { "biome", "prettier" },
-      css = { "prettier" },
-      html = { "prettier" },
-      json = { "biome", "prettier" },
-      jsonc = { "biome", "prettier" },
-      javascript = { "biome", "prettier", "prettierd" },
-      typescript = { "biome", "prettier", "prettierd" },
-      typescriptreact = { "biome" },
-      yaml = { "prettier" },
+      css = { "prettierd", "biome" },
+      html = { "prettierd" },
+      astro = { "prettierd", "biome" },
+      json = { "prettierd", "biome" },
+      jsonc = { "prettierd", "biome" },
+      javascript = { "prettierd", "biome" },
+      typescript = { "prettierd", "biome" },
+      typescriptreact = { "prettierd", "biome" },
+      svelte = { "prettierd" },
+      yaml = { "prettierd" },
       lua = { "stylua" },
       python = { "black", "yapf" },
       bash = { "beautysh" },
@@ -52,7 +79,8 @@ return {
       toml = { "taplo" },
       sql = { "sql_formatter" },
       nix = { "alejandra" },
-      markdown = { "prettier" },
+      markdown = { "prettierd" },
+      qml = { "qmlformat" },
     },
 
     format_on_save = function(bufnr)
