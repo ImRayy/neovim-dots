@@ -5,8 +5,7 @@ return {
     opts = {
       events = { "BufWritePost", "BufReadPost", "InsertLeave" },
       linters_by_ft = {
-        bash = { "shellcheck" },
-        markdown = { "markdownlint" },
+        bash = { "shellharden", "shellcheck" },
       },
     },
 
@@ -24,6 +23,7 @@ return {
       })
 
       vim.keymap.set("n", "<leader>l", function()
+        lint.try_lint("cspell")
         lint.try_lint()
       end, { desc = "Trigger linting for current file" })
     end,
