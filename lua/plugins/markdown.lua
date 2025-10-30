@@ -1,19 +1,5 @@
 return {
 
-  -- MarkdownPreview
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown", "mdx" }
-    end,
-    ft = { "markdown", "mdx" },
-    keys = {
-      { "<a-m>", "<cmd>MarkdownPreview<cr>", mode = "n" },
-    },
-  },
-
   -- Improve viewing Markdown files in Neovim
   {
     "MeanderingProgrammer/render-markdown.nvim",
