@@ -11,7 +11,7 @@ map("i", "<C-Backspace>", "<C-W>", { noremap = true, desc = "Delete a word" })
 map("n", "<leader>s", ":setlocal spell spelllang=en_us,programming<CR>", { desc = "Turn on spell check" })
 
 -- Session Manager
-map("n", "<C-s>", require("auto-session.session-lens").search_session, { desc = "Project hop" })
+map("n", "<C-s>", require("auto-session").search, { desc = "Project hop" })
 
 -- Formatter
 map("n", "<Space>f", function()
