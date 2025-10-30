@@ -34,12 +34,6 @@ local options = {
     guifont = "CommitMono Nerd Font:h12.5",
     -- mouse = "a",
     listchars = "trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂",
-
-    -- line wrapping
-    wrap = true,
-    breakindent = true,
-    showbreak = string.rep(" ", 3), -- Make it so that long lines wrap smartly
-    linebreak = true
 }
 set_vim_options(options, true)
 

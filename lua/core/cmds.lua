@@ -27,6 +27,30 @@ end, {
   desc = "Toggle relativenumber",
 })
 
+-- -- line wrapping
+-- wrap = true,
+-- breakindent = true,
+-- showbreak = string.rep(" ", 3), -- Make it so that long lines wrap smartly
+-- linebreak = true
+
+vim.api.nvim_create_user_command("LineWrap", function()
+  local enable = not vim.opt.wrap:get()
+
+  vim.opt.wrap = enable
+
+  if enable then
+    vim.opt.linebreak = true
+    vim.opt.breakindent = true
+    vim.opt.showbreak = ""
+  else
+    vim.opt.linebreak = false
+    vim.opt.breakindent = false
+    vim.opt.showbreak = string.rep(" ", 3)
+  end
+
+  vim.notify("Line wrapping " .. (enable and "enabled" or "disabled"))
+end, { desc = "Toggle line wrap" })
+
 -- Snacks.nvim: LSP-integrated file renaming for mini files
 A.nvim_create_autocmd("User", {
   pattern = "MiniFilesActionRename",
