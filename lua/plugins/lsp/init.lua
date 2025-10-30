@@ -6,21 +6,20 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local mason_lspconfig = require("mason-lspconfig")
 
       mason_lspconfig.setup_handlers({
         -- default handler for installed servers
         function(server_name)
-          lspconfig[server_name].setup({
+          vim.lsp.config(server_name, {
             capabilities = capabilities,
           })
         end,
       })
 
       -- Disables warning "undefined global 'vim'"
-      lspconfig.lua_ls.setup({
+      vim.lsp.config("lua_ls", {
         settings = {
           Lua = {
             diagnostics = {
@@ -33,8 +32,7 @@ return {
       -- lspconfig.cssls.setup({
       --   settings = { css = { validate = false } },
       -- })
-
-      lspconfig.eslint.setup({
+      vim.lsp.config("esling", {
         code_actions = {
           enable = true,
           types = { "directive", "problem", "suggestion", "layout" },
@@ -51,7 +49,7 @@ return {
       })
 
       -- LSP wrapper for typescript extension of vscode
-      lspconfig.vtsls.setup({
+      vim.lsp.config("vtls", {
         enableMoveToFileCodeAction = true,
         autoUseWorkspaceTsdk = true,
         experimental = {
@@ -61,12 +59,9 @@ return {
         },
       })
 
-      lspconfig.qmlls.setup({
-        cmd = { "qmlls", "-E" },
-      })
-
-      lspconfig.astro.setup({})
-      lspconfig.nixd.setup({
+      vim.lsp.config("qmlls", {})
+      vim.lsp.config("astro", {})
+      vim.lsp.config("nixd", {
         cmd = { "nixd" },
         settings = {
           nixd = {
