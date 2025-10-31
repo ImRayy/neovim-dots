@@ -12,14 +12,24 @@ return {
       mason_lspconfig.setup_handlers({
         -- default handler for installed servers
         function(server_name)
-          vim.lsp.config(server_name, {
-            capabilities = capabilities,
-          })
+          vim.lsp.enable(server_name)
         end,
       })
 
       -- Disables warning "undefined global 'vim'"
-      vim.lsp.config("lua_ls", {
+      vim.lsp.config.lua_ls = {
+        cmd = { "lua-language-server" },
+        root_markers = {
+          ".luarc.json",
+          ".luarc.jsonc",
+          ".luacheckrc",
+          ".stylua.toml",
+          "stylua.toml",
+          "selene.toml",
+          "selene.yml",
+          ".git",
+        },
+        capabilities = capabilities,
         settings = {
           Lua = {
             diagnostics = {
@@ -27,12 +37,10 @@ return {
             },
           },
         },
-      })
+      }
 
-      -- lspconfig.cssls.setup({
-      --   settings = { css = { validate = false } },
-      -- })
-      vim.lsp.config("esling", {
+      vim.lsp.config.eslint = {
+        capabilities = capabilities,
         code_actions = {
           enable = true,
           types = { "directive", "problem", "suggestion", "layout" },
@@ -40,16 +48,16 @@ return {
         diagnostics = {
           enable = true,
           report_unused_disable_directives = false,
-          run_on = "type", -- or `save`
+          run_on = "type",
         },
         settings = {
           workingDirectories = { mode = "auto" },
           packageManager = "bun",
         },
-      })
+      }
 
-      -- LSP wrapper for typescript extension of vscode
-      vim.lsp.config("vtls", {
+      vim.lsp.config.vtsls = {
+        capabilities = capabilities,
         enableMoveToFileCodeAction = true,
         autoUseWorkspaceTsdk = true,
         experimental = {
@@ -57,12 +65,19 @@ return {
             enableServerSideFuzzyMatch = true,
           },
         },
-      })
+      }
 
-      vim.lsp.config("qmlls", {})
-      vim.lsp.config("astro", {})
-      vim.lsp.config("nixd", {
+      vim.lsp.config.qmlls = {
+        capabilities = capabilities,
+      }
+
+      vim.lsp.config.astro = {
+        capabilities = capabilities,
+      }
+
+      vim.lsp.config.nixd = {
         cmd = { "nixd" },
+        capabilities = capabilities,
         settings = {
           nixd = {
             nixpkgs = {
@@ -78,7 +93,10 @@ return {
             },
           },
         },
-      })
+      }
+
+      -- Enable all configured servers
+      vim.lsp.enable({ "lua_ls", "eslint", "vtsls", "qmlls", "astro", "nixd" })
     end,
   },
 
