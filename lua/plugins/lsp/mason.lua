@@ -38,7 +38,7 @@ return {
           require("mason-tool-installer").setup({
             ensure_installed = {
               "beautysh",
-              "biome",
+              { "biome", version = "2.1.2" },
               "eslint-lsp",
               "gopls",
               "prettierd",
@@ -68,6 +68,11 @@ return {
           check_outdated_servers = "C",
           uninstall_server = "X",
           cancel_installation = "<C-c>",
+        },
+
+        registries = {
+          "lua:mason-registry.index",
+          "github:mason-org/mason-registry@2025-11-27-static-profit ",
         },
       },
     },
