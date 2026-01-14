@@ -1,7 +1,60 @@
 {
-  "interface PropsType": {
-    "prefix": "pt",
-    "body": ["interface PropsType {", "  $1", "}"],
-    "description": "TypeScript interface for props"
-  }
+	"interface PropsType": {
+		"prefix": "pt",
+		"body": ["interface PropsType {", "  $1", "}"],
+		"description": "TypeScript interface for props"
+	},
+	"React Hook Form with Zod": {
+		"prefix": "rhzf",
+		"body": [
+			"import { Form } from \"@/components/ui/form\"",
+			"import { zodResolver } from \"@hookform/resolvers/zod\"",
+			"import { type SubmitHandler, useForm } from \"react-hook-form\"",
+			"import z from \"zod\"",
+			"",
+			"const formSchema = z.object({",
+			"  $1",
+			"})",
+			"",
+			"type FormType = z.infer<typeof formSchema>",
+			"",
+			"export default function $2() {",
+			"  const form = useForm<FormType>({",
+			"    resolver: zodResolver(formSchema),",
+			"  })",
+			"",
+			"  const onSubmit: SubmitHandler<FormType> = (data) => {",
+			"    $3",
+			"  }",
+			"",
+			"  return (",
+			"    <Form {...form}>",
+			"      <form onSubmit={form.handleSubmit(onSubmit)}>",
+			"        $4",
+			"      </form>",
+			"    </Form>",
+			"  )",
+			"}"
+		],
+		"description": "React Hook Form with Zod validation boilerplate"
+	},
+	"Shadcn FormField": {
+		"prefix": "ff",
+		"body": [
+			"<FormField",
+			"  control={form.control}",
+			"  name=\"$1\"",
+			"  render={({ field }) => (",
+			"    <FormItem>",
+			"      <FormLabel>$2</FormLabel>",
+			"      <FormControl>",
+			"        $3",
+			"      </FormControl>",
+			"      <FormMessage />",
+			"    </FormItem>",
+			"  )}",
+			"/>"
+		],
+		"description": "Shadcn FormField block"
+	}
 }
