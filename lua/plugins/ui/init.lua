@@ -62,35 +62,4 @@ return {
       extensions = { "quickfix", "nvim-tree" },
     },
   },
-
-  -- Telescope
-  {
-    "nvim-telescope/telescope.nvim",
-    opts = {
-      defaults = {
-        prompt_prefix = "   ",
-        selection_caret = " ",
-        entry_prefix = " ",
-        sorting_strategy = "ascending",
-        layout_config = {
-          horizontal = {
-            prompt_position = "top",
-            preview_width = 0.55,
-          },
-          width = 0.87,
-          height = 0.80,
-        },
-      },
-      pickers = {
-        colorscheme = { theme = "dropdown" },
-      },
-    },
-    keys = {
-      { "<leader>fp", "<cmd>Telescope<cr>", mode = "n" },
-      { "<leader>ff", "<cmd>Telescope find_files<cr>", mode = "n" },
-      { "<leader>fg", "<cmd>Telescope live_grep<cr>", mode = "n" },
-      { "<leader>fb", "<cmd>Telescope buffers<cr>", mode = "n" },
-      { "<leader>fh", "<cmd>Telescope help_tags<cr>", mode = "n" },
-    },
-  },
 }
